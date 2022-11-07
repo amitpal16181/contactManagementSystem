@@ -1,0 +1,170 @@
+/*
+Fonts :-moz-user-disabled
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0 12.5%;
+}
+
+.landing {
+        width: 75vw;
+        height: 100vh;
+}
+
+::-webkit-scrollbar {
+        display: none;
+}
+
+::selection {
+        background-color: #5F9DF7;
+}
+
+/* Navbar styling */
+.navbar {
+        margin: 2rem auto;
+}
+
+.logo {
+        width: 125px;
+        height: 45px;
+}
+
+.nav-content {
+        /* display: inline-block; */
+        margin-left: 63%;
+        margin-top: -2.25rem;
+}
+
+.nav-content>a {
+        font-family: 'Montserrat', sans-serif;
+        margin: 1rem 1rem;
+        font-size: 1.2rem;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.1s ease-in-out;
+}
+
+#signUpBtn {
+        background-color: #5F9DF7;
+        margin: 0 0;
+        padding: 1rem;
+        transition: 0.2s ease-in-out;
+}
+
+#signUpBtn:hover {
+        background-color: #ffffff;
+}
+
+.nav-content>a:hover {
+        text-decoration: underline;
+        color: rgb(117, 117, 117);
+}
+
+/* Home Section */
+
+.homeSection {
+        height: 75vh;
+        margin-top: 5rem;
+}
+
+.homeImg {
+        position: absolute;
+        right: 12.5%;
+        top: 30%;
+        border-radius: 2rem;
+}
+
+.homeContent {
+        display: inline;
+        position: relative;
+        top: 30%;
+}
+
+.homeContent>h2 {
+        font-size: 3rem;
+}
+
+.homeContent>p {
+        font-size: 1.5rem;
+}
+
+/*Profile Section*/
+.about {
+        text-align: center;
+        margin-bottom: 5rem;
+}
+
+.about>h2{
+        font-size: 3rem;
+}
+
+.profileCard {
+        display: inline-block;
+        margin: 2rem 4rem;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 3rem;
+        background-color: rgba(88, 88, 88, 0.3);
+        backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+}
+
+.profileCard>img {
+        width: 200px;
+        height: 250px;
+        border-radius: 5%;
+}
+
+.profileCard>h3 {
+        font-size: 1.2rem;
+}
+
+/*Contact*/
+.contact{
+        text-align: center;
+        margin: 3rem 0;
+}
+
+.contact>a{
+        text-align: center;
+        padding: 1rem 4rem;
+        background-color: #5F9DF7;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1.25rem;
+        color: whitesmoke;
+        transition: all 0.2s ease-in-out;
+}
+
+.contact>a:hover{
+        text-decoration: underline;
+}
+
+/*footer*/
+footer{
+        text-align: center;
+        background-color: rgb(201, 201, 201);
+        padding: 4%;
+        margin-bottom: 2rem;
+}
+
+footer>h1{
+        font-size: 5rem;
+        margin: 1rem 0;
+}
+
+footer>a>i{
+        margin: 0 2rem;
+        font-size: 3rem;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        transition: all 0.25s ease-in-out;
+}
+
+footer>a>i:hover{
+        position: relative;
+        top: -0.2rem;
+}
