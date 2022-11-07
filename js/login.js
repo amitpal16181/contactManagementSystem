@@ -18,3 +18,42 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 });
 
 //onSubmit function
+document.getElementById("submitBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        // console.log("click");
+        const phonenumber = document.getElementById("userph").value.trim();
+        const password = document.getElementById("pass").value.trim();
+        const obj = {
+                phonenumber,
+                password
+        }
+        // console.log(obj);
+        const options = {
+                method: "POST",
+                headers: {
+                        "Content-Type": "application/json",
+                },
+                body: JSON.stringify(obj)
+        };
+        fetch("http://localhost:5000/api/login", options)
+                .then((response) => {
+                        return response.json();
+                })
+                .then((response) => {
+                        console.log(response);
+                        if(response.length==0){
+                                alert("username or password is invalid!!");
+                                return;
+                        }
+                        else{   
+                                localStorage.setItem("userphone",response[0].phonenumber);
+                                window.location.href = "./dashboard.html";
+                        }
+                        
+                })
+                .catch((error) => {
+                        console.log("problem in frontend");
+                })
+        
+
+})
