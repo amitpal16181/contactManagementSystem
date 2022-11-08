@@ -13,7 +13,7 @@ async function fetchUserInfo(phonenumber,password){
     const result = await db.query(
         `select * from userinfo 
         where 
-        phonenumber ="${phonenumber}" 
+        phoneNumber ="${phonenumber}" 
         and 
         password = "${password}"`
     );
@@ -23,16 +23,17 @@ async function fetchUserInfo(phonenumber,password){
 async function fetchAllContacts(phonenumber){
     // console.log("we r in model now");
     const result = await db.query(
-        `select contactnumber,contactname 
+        `select contactNumber,contactName 
         from 
         contactinfo
         where 
-        phonenumber ="${phonenumber}" 
+        phoneNumber ="${phonenumber}" 
         `
     );
     
     return result[0];
 }
+
 //useless
 async function fetchAllUser(){
     // console.log("we r in model now");

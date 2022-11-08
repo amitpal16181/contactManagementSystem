@@ -1,5 +1,5 @@
 window.onload  = function(params) {
-    console.log("hn hogyi");
+    console.log("Working...");
     //--------------------------------------------------
     const options = {
         method: "GET",

@@ -19,6 +19,8 @@ async function getUsers(request,res){
         console.log("problem in controller file");
     }
 }
+
+//features
 async function checkUser(request,res){
     // console.log("we r in controller now");
     var body = "";

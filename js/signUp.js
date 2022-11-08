@@ -53,4 +53,4 @@ document.getElementById("submitBtn").addEventListener("click", (e) => {
         .catch((error) => {
                 console.log("problem in frontend");
         })
-})
+});
