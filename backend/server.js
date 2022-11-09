@@ -5,7 +5,8 @@ const {
     addUser,
     checkUser,
     getContacts,
-    addContact
+    addContact,
+    deleteContact
 }  = require("./controller/UserController");
 
 const server = http.createServer((request, res) => {
@@ -17,6 +18,8 @@ const server = http.createServer((request, res) => {
         addContact(request, res);
     } else if (request.url === "/api/contacts" && request.method === "POST") {
         getContacts(request, res);
+    } else if (request.url === "/api/delete/contact" && request.method === "POST") {
+        deleteContact(request,res);
     } else {
         console.log("hit 3");
         getUsers(request, res);
