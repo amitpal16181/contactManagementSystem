@@ -20,8 +20,8 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 //onSubmit function
 document.getElementById("submitBtn").addEventListener("click", (e) => {
         e.preventDefault();
-        const username = document.getElementById("name").value.trim();
-        const phonenumber = document.getElementById("userph").value.trim();
+        const userName = document.getElementById("name").value.trim();
+        const phoneNumber = document.getElementById("userph").value.trim();
         const password = document.getElementById("pass").value.trim();
         const cpassword = document.getElementById("confirmPass").value.trim();
         if (password !== cpassword) {
@@ -30,8 +30,8 @@ document.getElementById("submitBtn").addEventListener("click", (e) => {
         }
 
         const obj = {
-                username,
-                phonenumber,
+                userName,
+                phoneNumber,
                 password
         }
         // console.log(obj);

@@ -31,7 +31,7 @@ async function checkUser(request,res){
         const obj = JSON.parse(body);
         try {
             const checkResponse = await USER.fetchUserInfo(
-                obj['phonenumber'],
+                obj['phoneNumber'],
                 obj['password'],
             );
             res.writeHeader(200, headers);
@@ -52,8 +52,8 @@ async function addUser(request, res) {
         const obj = JSON.parse(body);
         try {
             const addresponse = await USER.addOneUser(
-                obj['phonenumber'],
-                obj['username'],
+                obj['phoneNumber'],
+                obj['userName'],
                 obj['password'],
             );
             res.writeHeader(200, headers);
@@ -74,7 +74,7 @@ async function getContacts(request, res) {
         const obj = JSON.parse(body);
         try {
             const addresponse = await USER.fetchAllContacts(
-                obj['phonenumber'],
+                obj['phoneNumber'],
             );
             res.writeHeader(200, headers);
             res.end(JSON.stringify(addresponse));
@@ -85,9 +85,32 @@ async function getContacts(request, res) {
         }
     });
 }
+async function addContact(request, res) {
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        const obj = JSON.parse(body);
+        try {
+            const addresponse = await USER.addOneContact(
+                obj['phoneNumber'],
+                obj['contactNumber'],
+                obj['contactName'],
+            );
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(addresponse));
+        } catch (error) {
+            console.log(error);
+            console.log("problem in controller file");
+            console.log("function name : addContact");
+        }
+    });
+}
 module.exports = {
     getUsers,
     addUser,
     checkUser,
-    getContacts
+    getContacts,
+    addContact
 }

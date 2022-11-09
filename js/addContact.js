@@ -9,7 +9,7 @@ function getIP(callback) {
 
 //intl-tel-info start code
 //we can also add prefered counties and they will be presented at the top
-const phoneInputField = document.querySelector("#userph");
+const phoneInputField = document.querySelector("#contactNumber");
 const phoneInput = window.intlTelInput(phoneInputField, {
         initialCountry: "auto",
         geoIpLookup: getIP,
@@ -17,44 +17,34 @@ const phoneInput = window.intlTelInput(phoneInputField, {
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
 
-//onSubmit function
+//onSubmit
 document.getElementById("submitBtn").addEventListener("click", (e) => {
         e.preventDefault();
-        // console.log("click");
-        const phoneNumber = document.getElementById("userph").value.trim();
-        const password = document.getElementById("pass").value.trim();
+        const phoneNumber = localStorage.getItem("userPhone");
+        const contactNumber = document.getElementById("contactNumber").value.trim();
+        const contactName = document.getElementById("contactName").value.trim();
+
         const obj = {
                 phoneNumber,
-                password
-        }
-        // console.log(obj);
+                contactNumber,
+                contactName
+        };
         const options = {
                 method: "POST",
                 headers: {
-                        "Content-Type": "application/json",
+                        "Content-Type": "application/json"
                 },
                 body: JSON.stringify(obj)
         };
-        fetch("http://localhost:5000/api/login", options)
+        console.log("Moving...")
+        fetch("http://localhost:5000/api/add/contact", options)
                 .then((response) => {
                         return response.json();
-                })
-                .then((response) => {
+                }).then((response) => {
                         console.log(response);
-                        if(response.length==0){
-                                alert("userName or password is invalid!!");
-                                return;
-                        }
-                        else{   
-                                localStorage.setItem("userPhone",response[0].phoneNumber);
-                                localStorage.setItem("userName", response[0].userName);
-                                window.location.href = "./dashboard.html";
-                        }
-                        
-                })
-                .catch((error) => {
+                        window.location.href = "./dashboard.html";
+                }).catch((error) => {
                         console.log("problem in frontend");
                 })
-        
 
-})
+});

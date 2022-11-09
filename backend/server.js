@@ -4,7 +4,8 @@ const {
     getUsers,
     addUser,
     checkUser,
-    getContacts
+    getContacts,
+    addContact
 }  = require("./controller/UserController");
 
 const server = http.createServer((request, res) => {
@@ -12,6 +13,8 @@ const server = http.createServer((request, res) => {
         addUser(request, res);
     } else if (request.url === "/api/login" && request.method === "POST") {
         checkUser(request, res);
+    } else if (request.url === "/api/add/contact" && request.method === "POST") {
+        addContact(request, res);
     } else if (request.url === "/api/contacts" && request.method === "POST") {
         getContacts(request, res);
     } else {

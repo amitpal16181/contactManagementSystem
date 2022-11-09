@@ -1,34 +1,43 @@
 const db = require('../database/data');
 
-async function addOneUser(phonenumber,username,password){
+async function addOneUser(phoneNumber,userName,password){
     // console.log("we r in model now");
     const result = await db.query(
-        `insert into userinfo values("${phonenumber}","${username}","${password}")`
+        `insert into userinfo values("${phoneNumber}","${userName}","${password}")`
     );
     
     return result[0];
 }
-async function fetchUserInfo(phonenumber,password){
+async function fetchUserInfo(phoneNumber,password){
     // console.log("we r in model now");
     const result = await db.query(
         `select * from userinfo 
         where 
-        phoneNumber ="${phonenumber}" 
+        phoneNumber ="${phoneNumber}" 
         and 
         password = "${password}"`
     );
     
     return result[0];
 }
-async function fetchAllContacts(phonenumber){
+async function fetchAllContacts(phoneNumber){
     // console.log("we r in model now");
     const result = await db.query(
         `select contactNumber,contactName 
         from 
         contactinfo
         where 
-        phoneNumber ="${phonenumber}" 
+        phoneNumber ="${phoneNumber}" 
         `
+    );
+    
+    return result[0];
+}
+
+async function addOneContact(phoneNumber, contactNumber, contactName){
+    // console.log("we r in model now");
+    const result = await db.query(
+        `insert into contactinfo values("${phoneNumber}","${contactNumber}","${contactName}")`
     );
     
     return result[0];
@@ -45,5 +54,6 @@ module.exports = {
     addOneUser,
     fetchAllUser,
     fetchUserInfo,
-    fetchAllContacts
+    fetchAllContacts,
+    addOneContact
 }
