@@ -42,6 +42,20 @@ async function addOneContact(phoneNumber, contactNumber, contactName){
     
     return result[0];
 }
+async function deleteOneContact(phoneNumber, contactNumber){
+    // console.log("we r in model now");
+    const result = await db.query(
+        `
+        delete from contactinfo 
+        where 
+        phonenumber = "${phoneNumber}"
+        and
+        contactnumber="${contactNumber}"
+        `
+    );
+    
+    return result[0];
+}
 
 //useless
 async function fetchAllUser(){
@@ -55,5 +69,6 @@ module.exports = {
     fetchAllUser,
     fetchUserInfo,
     fetchAllContacts,
-    addOneContact
+    addOneContact,
+    deleteOneContact
 }

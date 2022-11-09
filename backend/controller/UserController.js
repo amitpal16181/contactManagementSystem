@@ -107,10 +107,32 @@ async function addContact(request, res) {
         }
     });
 }
+async function deleteContact(request, res) {
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        const obj = JSON.parse(body);
+        try {
+            const deleteresponse = await USER.deleteOneContact(
+                obj['phoneNumber'],
+                obj['contactNumber'],
+            );
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(deleteresponse));
+        } catch (error) {
+            console.log(error);
+            console.log("problem in controller file");
+            console.log("function name : deleteContact");
+        }
+    });
+}
 module.exports = {
     getUsers,
     addUser,
     checkUser,
     getContacts,
-    addContact
+    addContact,
+    deleteContact
 }
