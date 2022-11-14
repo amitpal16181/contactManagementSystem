@@ -1,14 +1,12 @@
 window.onload  = function(params) {
     const token = localStorage.getItem("userPhone");
     if (token == undefined || token == null) {
-        window.location.replace("../pages/login.html");
-        console.log("false");
-        return;
+        
     }
     else{
         window.location.replace("../pages/dashboard.html");
     }
-    console.log("Working...");
+    console.log("Welcome to Contact Management System. Use applicaion, not the console you kid...");
     //--------------------------------------------------
     // const options = {
     //     method: "GET",

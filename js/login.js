@@ -46,8 +46,8 @@ document.getElementById("submitBtn").addEventListener("click", (e) => {
                                 return;
                         }
                         else{   
-                                localStorage.setItem("userPhone",response[0].phonenumber);
-                                localStorage.setItem("userName", response[0].username);
+                                localStorage.setItem("userPhone",response[0].phoneNumber);
+                                localStorage.setItem("userName", response[0].userName);
                                 // window.location.href = "./dashboard.html";
                                 window.location.replace("./dashboard.html");
                         }

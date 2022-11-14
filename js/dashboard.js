@@ -93,7 +93,7 @@ window.onload = function (params) {
         localStorage.removeItem("userPhone");
         localStorage.removeItem("userName");
         // window.location.href = "./login.html";
-        window.location.replace("./login.html");
+        window.location.replace("../index.html");
         
     });
 

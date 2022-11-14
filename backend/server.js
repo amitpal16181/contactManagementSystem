@@ -7,7 +7,7 @@ const {
     getContacts,
     addContact,
     deleteContact
-}  = require("./controller/UserController");
+} = require("./controller/UserController");
 
 const server = http.createServer((request, res) => {
     if (request.url === "/api/add/user" && request.method === "POST") {
@@ -19,7 +19,7 @@ const server = http.createServer((request, res) => {
     } else if (request.url === "/api/contacts" && request.method === "POST") {
         getContacts(request, res);
     } else if (request.url === "/api/delete/contact" && request.method === "POST") {
-        deleteContact(request,res);
+        deleteContact(request, res);
     } else {
         console.log("hit 3");
         getUsers(request, res);

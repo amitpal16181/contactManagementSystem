@@ -48,9 +48,9 @@ async function deleteOneContact(phoneNumber, contactNumber){
         `
         delete from contactinfo 
         where 
-        phonenumber = "${phoneNumber}"
+        phoneNumber = "${phoneNumber}"
         and
-        contactnumber="${contactNumber}"
+        contactNumber="${contactNumber}"
         `
     );
     
